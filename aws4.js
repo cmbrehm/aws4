@@ -114,10 +114,7 @@ RequestSigner.prototype.prepareRequest = function() {
     if (!request.doNotModifyHeaders && !this.isCodeCommitGit) {
       if (request.body && !headers['Content-Type'] && !headers['content-type'])
         headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8'
-
-      if (request.body && !headers['Content-Length'] && !headers['content-length'])
-        headers['Content-Length'] = Buffer.byteLength(request.body)
-
+        
       if (this.credentials.sessionToken)
         headers['X-Amz-Security-Token'] = this.credentials.sessionToken
 
